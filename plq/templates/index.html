@@ -1,0 +1,120 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<script>
+    $(document).ready(function() {
+        $('.btn').button();
+
+        $(".gender" ).children().each(function() {
+
+            var attr = $(this).children().first().attr('checked');
+
+            if (typeof attr !== typeof undefined && attr !== false) {
+                $(this).addClass("active");
+            }
+        });
+    });
+</script>
+
+<form action="{{ url_for('index') }}" method="post" class="form-horizontal">
+
+    <!-- FIRST NAME -->
+    <div class="form-group">
+        {{ form.emri.label(class_="control-label col-xs-4") }}
+        <div class="col-xs-5">
+            {{ form.emri(class_="form-control") }}
+        </div>
+    </div>
+
+    <!-- LAST NAME -->
+    <div class="form-group">
+        {{ form.mbiemri.label(class_="control-label col-xs-4") }}
+        <div class="col-xs-5">
+            {{ form.mbiemri(class_="form-control") }}
+        </div>
+    </div>
+
+    <!-- GENDER -->
+    <div class="form-group">
+    {{ form.gjinia.label(class_="control-label col-xs-4") }}
+    <div class="btn-group col-xs-2 gender" data-toggle="buttons">
+        {% for subfield in form.gjinia %}
+            <div class="btn btn-default">
+                {{ subfield }}
+                {{ subfield.label }}
+            </div>
+        {% endfor %}
+        </div> 
+    </div>
+
+    <!-- CITY -->
+    <div class="form-group">
+        {{ form.qyteti.label(class_="control-label col-xs-4") }}
+        <div class="col-xs-5">
+            {{ form.qyteti(class_="form-control") }}
+        </div>
+    </div>
+
+    <!-- E-mail of Programer -->
+    <div class="form-group">
+        {{ form.e_mail.label(class_="control-label col-xs-4") }}
+        <div class="col-xs-5">
+            {{ form.e_mail(class_="form-control") }}
+        </div>
+    </div>
+
+    <!-- Education -->
+    <div class="form-group">
+        {{ form.shkollimi.label(class_="control-label col-xs-4") }}
+        <div class="col-xs-5">
+            {{ form.shkollimi(class_="form-control") }}
+        </div>
+    </div>
+
+    <!-- Departamenti -->
+    <div class="form-group">
+        {{ form.departamenti.label(class_="control-label col-xs-4") }}
+        <div class="col-xs-5">
+            {{ form.departamenti(class_="form-control") }}
+        </div>
+    </div>
+
+    <!-- Gjuhet Programuese -->
+    <div class="form-group">
+        {{ form.gjuhet_programuese.label(class_="control-label col-xs-4") }}
+       <div class="btn-group col-xs-5" data-toggle="buttons">
+            {% for subfield in form.grada_histologjike_tumorit %}
+                <div class="btn btn-default">
+                    {{ subfield }}
+                    {{ subfield.label }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Gjuhet Tjera Programuese -->
+    <div class="form-group">
+        {{ form.gjuhet_tjera_programuese.label(class_="control-label col-xs-4") }}
+        <div class="col-xs-5">
+            {{ form.gjuhet_tjera_programuese(class_="form-control") }}
+        </div>
+    </div>
+
+    <!-- Shkathesite Tjera -->
+    <div class="form-group">
+        {{ form.shkathesite_tjera.label(class_="control-label col-xs-4") }}
+        <div class="col-xs-5">
+            {{ form.shkathesite_tjera(class_="form-control") }}
+        </div>
+    </div>
+
+    <br>
+    <div align="center">
+        <button type="submit" class="btn btn-primary">Regjistro</button>
+    </div>
+    <br>
+</form>
+
+
+{% endblock %}
