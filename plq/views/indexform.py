@@ -24,7 +24,7 @@ class IndexForm(Form):
         choices=[('Mashkull', 'Mashkull'), ('Femer', 'Femer')],
         default='Mashkull')
 
-    qyteti = TextField('Qyteti:')
+    qyteti = TextField('Vendbanimi:')
     e_mail = TextField('E-mail:')
     universiteti = SelectField(
         'Universiteti:',
