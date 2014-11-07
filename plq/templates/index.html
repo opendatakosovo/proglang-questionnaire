@@ -6,6 +6,26 @@
     $(document).ready(function() {
         $('.btn').button();
 
+        //checkbox enables selct field niveli
+        $('.gjuha-programuese').change(function(){
+            if ($(this).is(':checked')) {
+                $('.niveli').first().attr('disabled', false);
+            }
+            else {
+                $('.niveli').attr('disabled', true);
+            }   
+        });
+        //checkbox enables selct field niveli
+        $('.gjuhet-tjera').change(function(){
+            if ($(this).is(':checked')) {
+                $('.gjuhet-fusha').attr('disabled', false);
+            }
+            else {
+                $('.gjuhet-fusha').attr('disabled', true);
+                $(".gjuhet-fusha").val("");
+            } 
+        });
+
         $(".gender" ).children().each(function() {
 
             var attr = $(this).children().first().attr('checked');
@@ -19,7 +39,9 @@
 
 <form action="{{ url_for('index') }}" method="post" class="form-horizontal">
 
-    <!-- FIRST NAME -->
+    <h4>Formulari i Shkathtësive</h4>
+    <hr>
+    <!-- Emri -->
     <div class="form-group">
         {{ form.emri.label(class_="control-label col-xs-4") }}
         <div class="col-xs-5">
@@ -27,7 +49,7 @@
         </div>
     </div>
 
-    <!-- LAST NAME -->
+    <!-- Mbiemri -->
     <div class="form-group">
         {{ form.mbiemri.label(class_="control-label col-xs-4") }}
         <div class="col-xs-5">
@@ -35,7 +57,7 @@
         </div>
     </div>
 
-    <!-- GENDER -->
+    <!-- Gjinia -->
     <div class="form-group">
     {{ form.gjinia.label(class_="control-label col-xs-4") }}
     <div class="btn-group col-xs-2 gender" data-toggle="buttons">
@@ -48,7 +70,7 @@
         </div> 
     </div>
 
-    <!-- CITY -->
+    <!-- Qyteti -->
     <div class="form-group">
         {{ form.qyteti.label(class_="control-label col-xs-4") }}
         <div class="col-xs-5">
@@ -56,7 +78,7 @@
         </div>
     </div>
 
-    <!-- E-mail of Programer -->
+    <!-- E-mail i Programerit -->
     <div class="form-group">
         {{ form.e_mail.label(class_="control-label col-xs-4") }}
         <div class="col-xs-5">
@@ -64,11 +86,11 @@
         </div>
     </div>
 
-    <!-- Education -->
+    <!-- Universiteti -->
     <div class="form-group">
-        {{ form.shkollimi.label(class_="control-label col-xs-4") }}
+        {{ form.universiteti.label(class_="control-label col-xs-4") }}
         <div class="col-xs-5">
-            {{ form.shkollimi(class_="form-control") }}
+            {{ form.universiteti(class_="form-control") }}
         </div>
     </div>
 
@@ -83,24 +105,45 @@
     <!-- Gjuhet Programuese -->
     <div class="form-group">
         {{ form.gjuhet_programuese.label(class_="control-label col-xs-4") }}
-       <div class="btn-group col-xs-5" data-toggle="buttons">
-            {% for subfield in form.grada_histologjike_tumorit %}
-                <div class="btn btn-default">
-                    {{ subfield }}
-                    {{ subfield.label }}
-                </div>
+       <div class="form-group col-xs-6">
+            <ul>
+            {% for subfield in form.gjuhet_programuese %}
+                {% if subfield.id != 'gjuhet_programuese-12' %}
+                    <li>
+                     <div class="form-inline col-xs-6">
+                        <div class="form-group col-xs-7">
+                            {{ subfield(class="gjuha-programuese") }}
+                            {{ subfield.label }}
+                        </div>
+                        <!-- Nivelet e Gjuheve Programuese -->
+                        <div class="form-group col-xs-4 " style="margin-left:20px;">
+                            {{ form.nivelet(disabled=True, class="form-control niveli") }}
+                        </div>
+                    </div>
+                    <br>
+                    </li>
+                    <li>
+                {% else %}
+                <!-- Gjuhet Tjera Programuese -->
+                    <div class="form-inline col-xs-6">
+                    <br>
+                        <div class="form-group col-xs-6">
+                            {{ subfield(class="gjuhet-tjera") }}
+                            {{ subfield.label }}
+                        </div>
+                        
+                        <div class="form-group col-xs-6" style="margin-left:20px;">
+                            {{ form.gjuhet_tjera_programuese(disabled=True, placeholder="Gjuha - Niveli,", class_="form-control gjuhet-fusha")}}
+                        </div>                        
+                    </div>
+                     <label style="margin-left: 50px">*Gjuhet tjera programuese(te ndahen me presje)</label>
+                {% endif %}
+                </li>
             {% endfor %}
+            </ul>
         </div>
     </div>
-
-    <!-- Gjuhet Tjera Programuese -->
-    <div class="form-group">
-        {{ form.gjuhet_tjera_programuese.label(class_="control-label col-xs-4") }}
-        <div class="col-xs-5">
-            {{ form.gjuhet_tjera_programuese(class_="form-control") }}
-        </div>
-    </div>
-
+    <br>
     <!-- Shkathesite Tjera -->
     <div class="form-group">
         {{ form.shkathesite_tjera.label(class_="control-label col-xs-4") }}
@@ -109,9 +152,9 @@
         </div>
     </div>
 
-    <br>
+    <br><hr>
     <div align="center">
-        <button type="submit" class="btn btn-primary">Regjistro</button>
+        <button type="submit" class="btn btn-primary">Regjistrohu</button>
     </div>
     <br>
 </form>

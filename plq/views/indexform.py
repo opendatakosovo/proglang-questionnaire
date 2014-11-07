@@ -1,5 +1,5 @@
 from flask_wtf import Form
-from wtform import TextField, TextAreaField, SelectField, RadioField
+from wtforms import TextField, TextAreaField, SelectField, RadioField
 from checkboxwidgets import MultiCheckboxField
 
 
@@ -11,7 +11,10 @@ class IndexForm(Form):
         'Objective-C', 'PHP', 'Perl', 'Tjera'
     ]
 
-    programing_languages_choices = [(x, x) for x in programing_languages]
+     # create a list of value/description tuples
+    programing_languages_choices = [
+        (x, x) for x in programing_languages
+    ]
 
     emri = TextField('Emri:')
     mbiemri = TextField('Mbiemri:')
@@ -23,15 +26,19 @@ class IndexForm(Form):
 
     qyteti = TextField('Qyteti:')
     e_mail = TextField('E-mail:')
-    shkollimi = TextField('Shkollimi:')
+    universiteti = SelectField(
+        'Universiteti:',
+        choices=[('Universiteti Prishtines', 'Universiteti Prishtines'),
+        ('UBT', 'UBT'),
+        ])
     departamenti = TextAreaField('Departamenti:')
 
     gjuhet_programuese = MultiCheckboxField(
         'Gjuhet programuese qe punoni dhe niveli juaj ne ato:',
         choices=programing_languages_choices)
 
-    gjuhet_tjera_programuese = TextAreaField('Tjera (comma separated)')
-    shkathesite_tjera = TextAreaField("Shkathesite tjera (comma separated):")
+    gjuhet_tjera_programuese = TextAreaField('Gjuhet tjera programuese(te ndahen me presje)')
+    shkathesite_tjera = TextAreaField("Shkathesite tjera(te ndahen me presje):")
 
     nivelet = SelectField(
         'Nivelet',

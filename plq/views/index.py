@@ -1,7 +1,10 @@
-from flask import current_app, session, request, render_template, redirect, url_for
+from flask import current_app, render_template, redirect, url_for
 from flask.views import MethodView
-from mdr.views.forms.treatmentform import TreatmentForm
+from plq.views.indexform import IndexForm
+from plq.utils.utils import Utils
+#from plq import mongo
 
+utils = Utils()
 
 
 class Index(MethodView):
@@ -10,35 +13,35 @@ class Index(MethodView):
     def get(self):
         ''' Dispatch the request.
         '''
-        # First, let's clear the session of variables associated to previous patient registration.
-        self.clear_session_variables()
+        form = IndexForm()
+        return render_template('index.html', form=form)
 
-        # Now let's retrieve our list of patients.
-        patient_docs = mongo.db.malignantdisease.find({}).sort([("_id", -1)])
-        # Render the templates.
-        return render_template('index.html', patient_docs=patient_docs)
-
-    #FIXME: It's a bit confusing to have this logic here. Maybe put it in its own class.
     def post(self):
         ''' Process inputted treatment.
             Store treatment data.
             Return to index page.
         '''
+        #let's get the doc id from utils.
+        doc_id = utils.get_doc_id()
         # Log progress.
         current_app.logger.info('Processed treatment for case %s', doc_id)
         current_app.logger.info('Completed registration of case %s', doc_id)
 
+        #self.save_skills_form(doc_id)
 
         # We use redirect instead of render_template so that we can run the logic in this view's get() method.
         return redirect(url_for('index'))
 
-    def save_treatment(self, doc_id):
+    '''
+    def save_skills_form(self, doc_id):
 
         # Update the patient doc with treatment.
-        treatment_form = TreatmentForm(request.form)
-        treatment = treatment_form.data
+        skills_form = TreatmentForm(request.form)
+        programmer_info = skills_form.data
 
-        mongo.db.malignantdisease.update(
+        mongo.db.developer.update(
             {'_id': doc_id},
-            {'$set': {'treatment': treatment}}
+            {'$set': {'programmerInfo': programmer_info}},
+            True
         )
+    '''
