@@ -1,5 +1,5 @@
 from flask_wtf import Form
-from wtforms import TextField, TextAreaField, SelectField, RadioField
+from wtforms import TextField, TextAreaField, SelectField, RadioField, BooleanField
 from checkboxwidgets import MultiCheckboxField
 
 
@@ -33,11 +33,20 @@ class IndexForm(Form):
         ])
     departamenti = TextAreaField('Departamenti:')
 
+    viti_studimit = SelectField(
+        'Viti studimit',
+        choices=[('1', '1'), ('2', '2'),
+        ('3', '3'), ('4', '4'), ('i diplomuar', 'i diplomuar'),
+        ('1 - Master', '1 - Master'), ('2 - Master', '2 - Master'),
+        ('i diplomuar - Master', 'i diplomuar - Master')
+        ])
+
     gjuhet_programuese = MultiCheckboxField(
         'Gjuhet programuese qe punoni dhe niveli juaj ne ato:',
         choices=programing_languages_choices)
 
     gjuhet_tjera_programuese = TextAreaField('Gjuhet tjera programuese(te ndahen me presje)')
+
     shkathesite_tjera = TextAreaField("Shkathesite tjera(te ndahen me presje):")
 
     nivelet = SelectField(
@@ -46,3 +55,4 @@ class IndexForm(Form):
         ('Mesatar', 'Mesatar'),
         ('Fillestar', 'Fillestar')
         ])
+    python_lang = MultiCheckboxField("Python", choices=[('Python', 'Python')])

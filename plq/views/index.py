@@ -24,7 +24,7 @@ class Index(MethodView):
         #let's get the doc id from utils.
         doc_id = utils.get_doc_id()
         # Log progress.
-        current_app.logger.info('Processed treatment for case %s', doc_id)
+        current_app.logger.info('Processed skills form for case %s', doc_id)
         current_app.logger.info('Completed registration of case %s', doc_id)
 
         self.save_skills_form(doc_id)
