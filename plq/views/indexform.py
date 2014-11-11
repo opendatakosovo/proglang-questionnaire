@@ -1,20 +1,9 @@
 from flask_wtf import Form
-from wtforms import TextField, TextAreaField, SelectField, RadioField, BooleanField
+from wtforms import TextField, TextAreaField, SelectField, RadioField
 from checkboxwidgets import MultiCheckboxField
 
 
 class IndexForm(Form):
-
-    programing_languages = [
-        'Python', 'Java', 'VB', 'C#', 'C++',
-        'JavaScript', 'Ruby', 'HTML', 'CSS',
-        'Objective-C', 'PHP', 'Perl', 'Tjera'
-    ]
-
-     # create a list of value/description tuples
-    programing_languages_choices = [
-        (x, x) for x in programing_languages
-    ]
 
     emri = TextField('Emri:')
     mbiemri = TextField('Mbiemri:')
@@ -41,18 +30,130 @@ class IndexForm(Form):
         ('i diplomuar - Master', 'i diplomuar - Master')
         ])
 
-    gjuhet_programuese = MultiCheckboxField(
-        'Gjuhet programuese qe punoni dhe niveli juaj ne ato:',
-        choices=programing_languages_choices)
-
-    gjuhet_tjera_programuese = TextAreaField('Gjuhet tjera programuese(te ndahen me presje)')
-
     shkathesite_tjera = TextAreaField("Shkathesite tjera(te ndahen me presje):")
 
-    nivelet = SelectField(
+    #programming languages checkbox group
+    python_lang = MultiCheckboxField("Python", choices=[('Python', 'Python')])
+    java_lang = MultiCheckboxField("Java", choices=[('Java', 'Java')])
+    vb_lang = MultiCheckboxField("VB", choices=[('VB', 'VB')])
+    csharp_lang = MultiCheckboxField("C#", choices=[('C#', 'C#')])
+    cpp_lang = MultiCheckboxField("C++", choices=[('C++', 'C++')])
+
+    java_script_lang = MultiCheckboxField(
+        "JavaScript",
+        choices=[('JavaScript', 'JavaScript')]
+    )
+
+    ruby_lang = MultiCheckboxField("Ruby", choices=[('Ruby', 'Ruby')])
+    html_lang = MultiCheckboxField("HTML", choices=[('HTML', 'HTML')])
+    css_lang = MultiCheckboxField("CSS", choices=[('CSS', 'CSS')])
+
+    objective_c_lang = MultiCheckboxField(
+        "Objective-C",
+        choices=[('Objective-C', 'Objective-C')]
+    )
+
+    php_lang = MultiCheckboxField("PHP", choices=[('PHP', 'PHP')])
+    perl_lang = MultiCheckboxField("Perl", choices=[('Perl', 'Perl')])
+
+    tjera_lang = MultiCheckboxField("Tjera", choices=[('Tjera', 'Tjera')])
+    gjuhet_tjera_programuese = TextAreaField(
+        'Gjuhet tjera programuese(te ndahen me presje)'
+    )
+
+    # programming skills level per each language
+    niveli_ptyhon = SelectField(
         'Nivelet',
         choices=[('Ekspert', 'Ekspert'),
         ('Mesatar', 'Mesatar'),
         ('Fillestar', 'Fillestar')
-        ])
-    python_lang = MultiCheckboxField("Python", choices=[('Python', 'Python')])
+        ]
+    )
+
+    niveli_java_lang = SelectField(
+        'Nivelet',
+        choices=[('Ekspert', 'Ekspert'),
+        ('Mesatar', 'Mesatar'),
+        ('Fillestar', 'Fillestar')
+        ]
+    )
+
+    niveli_vb_lang = SelectField(
+        'Nivelet',
+        choices=[('Ekspert', 'Ekspert'),
+        ('Mesatar', 'Mesatar'),
+        ('Fillestar', 'Fillestar')
+        ]
+    )
+
+    niveli_csharp_lang = SelectField(
+        'Nivelet',
+        choices=[('Ekspert', 'Ekspert'),
+        ('Mesatar', 'Mesatar'),
+        ('Fillestar', 'Fillestar')
+        ]
+    )
+
+    niveli_cpp_lang = SelectField(
+        'Nivelet',
+        choices=[('Ekspert', 'Ekspert'),
+        ('Mesatar', 'Mesatar'),
+        ('Fillestar', 'Fillestar')
+        ]
+    )
+
+    niveli_java_script_lang = SelectField(
+        'Nivelet',
+        choices=[('Ekspert', 'Ekspert'),
+        ('Mesatar', 'Mesatar'),
+        ('Fillestar', 'Fillestar')
+        ]
+    )
+
+    niveli_ruby_lang = SelectField(
+        'Nivelet',
+        choices=[('Ekspert', 'Ekspert'),
+        ('Mesatar', 'Mesatar'),
+        ('Fillestar', 'Fillestar')
+        ]
+    )
+
+    niveli_html_lang = SelectField(
+        'Nivelet',
+        choices=[('Ekspert', 'Ekspert'),
+        ('Mesatar', 'Mesatar'),
+        ('Fillestar', 'Fillestar')
+        ]
+    )
+
+    niveli_css_lang = SelectField(
+        'Nivelet',
+        choices=[('Ekspert', 'Ekspert'),
+        ('Mesatar', 'Mesatar'),
+        ('Fillestar', 'Fillestar')
+        ]
+    )
+
+    niveli_objective_c_lang = SelectField(
+        'Nivelet',
+        choices=[('Ekspert', 'Ekspert'),
+        ('Mesatar', 'Mesatar'),
+        ('Fillestar', 'Fillestar')
+        ]
+    )
+
+    niveli_php_lang = SelectField(
+        'Nivelet',
+        choices=[('Ekspert', 'Ekspert'),
+        ('Mesatar', 'Mesatar'),
+        ('Fillestar', 'Fillestar')
+        ]
+    )
+
+    niveli_perl_lang = SelectField(
+        'Nivelet',
+        choices=[('Ekspert', 'Ekspert'),
+        ('Mesatar', 'Mesatar'),
+        ('Fillestar', 'Fillestar')
+        ]
+    )

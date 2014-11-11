@@ -36,7 +36,7 @@ class Index(MethodView):
 
         # Update the patient doc with treatment.
         skills_form = IndexForm(request.form)
-        programmer_info = skills_form.data
+        programmer_info = utils.get_structured_skills_form(skills_form)
 
         mongo.db.developer.update(
             {'_id': doc_id},

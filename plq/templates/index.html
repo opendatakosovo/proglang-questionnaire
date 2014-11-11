@@ -109,48 +109,107 @@
             {{ form.viti_studimit(class_="form-control") }}
         </div>
     </div>
-
+    <br>
+    <label class="control-label col-xs-4">
+        Gjuhet programuese(te ndahen me presje):
+    </label><hr> 
     <!-- Gjuhet Programuese -->
-    <div class="form-group">
-        {{ form.gjuhet_programuese.label(class_="control-label col-xs-4") }}
-       <div class="form-group col-xs-6">
-            <ul>
-            {% for subfield in form.gjuhet_programuese %}
-                {% if subfield.id != 'gjuhet_programuese-12' %}
-                    <li>
-                     <div class="form-inline col-xs-6">
-                        <div class="form-group col-xs-7">
-                            {{ subfield(class="gjuha-programuese") }}
-                            {{ subfield.label }}
-                        </div>
-                        <!-- Nivelet e Gjuheve Programuese -->
-                        <div class="form-group col-xs-4 " style="margin-left:20px;">
-                            {{ form.nivelet(class="form-control niveli") }}
-                            
-                        </div>
-                    </div>
-                    <br>
-                    </li>
-                    <li>
-                {% else %}
-                <!-- Gjuhet Tjera Programuese -->
-                    <div class="form-inline col-xs-6">
-                    <br>
-                        <div class="form-group col-xs-6">
-                            {{ subfield(class="gjuhet-tjera") }}
-                            {{ subfield.label }}
-                        </div>
-                        
-                        <div class="form-group col-xs-6" style="margin-left:20px;">
-                            {{ form.gjuhet_tjera_programuese(disabled=True, placeholder="Gjuha - Niveli,", class_="form-control gjuhet-fusha")}}
-                        </div>                        
-                    </div>
-                {% endif %}
-                </li>
-            {% endfor %}
-            </ul>
-            <label style="margin-left:110px">*Gjuhet tjera programuese(te ndahen me presje)</label>
+    <div class="form-group" style="margin-right: 60px">
+        <div class="form-group">
+            <div class="col-xs-offset-4 col-xs-2">
+                {{ form.python_lang }}
+            </div>
+            <div class="form-group col-xs-2 ">
+                {{ form.niveli_ptyhon(class="form-control niveli") }}
+            </div>
+            <div class="col-xs-2">
+                {{ form.java_lang }}
+            </div>
+            <div class="form-group col-xs-2 " style="margin-right:30px">
+                {{ form.niveli_java_lang(class="form-control niveli") }}
+            </div>
         </div>
+        <div class="form-group">
+            <div class="col-xs-offset-4 col-xs-2">
+                {{ form.vb_lang }}
+            </div>
+            <div class="form-group col-xs-2 ">
+                {{ form.niveli_vb_lang(class="form-control niveli") }}
+            </div>
+            <div class="col-xs-2">
+                {{ form.csharp_lang }}
+            </div>
+            <div class="form-group col-xs-2 " style="margin-right:30px">
+                {{ form.niveli_csharp_lang(class="form-control niveli") }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-offset-4 col-xs-2">
+                {{ form.cpp_lang }}
+            </div>
+            <div class="form-group col-xs-2 ">
+                {{ form.niveli_cpp_lang(class="form-control niveli") }}
+            </div>
+            <div class="col-xs-2">
+                {{ form.java_script_lang }}
+            </div>
+            <div class="form-group col-xs-2 " style="margin-right:30px">
+                {{ form.niveli_java_script_lang(class="form-control niveli") }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-offset-4 col-xs-2">
+                {{ form.ruby_lang }}
+            </div>
+            <div class="form-group col-xs-2 ">
+                {{ form.niveli_ruby_lang(class="form-control niveli") }}
+            </div>
+            <div class="col-xs-2">
+                {{ form.html_lang }}
+            </div>
+            <div class="form-group col-xs-2 " style="margin-right:30px">
+                {{ form.niveli_html_lang(class="form-control niveli") }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-offset-4 col-xs-2">
+                {{ form.css_lang }}
+            </div>
+            <div class="form-group col-xs-2 ">
+                {{ form.niveli_css_lang(class="form-control niveli") }}
+            </div>
+            <div class="col-xs-2">
+                {{ form.objective_c_lang }}
+            </div>
+            <div class="form-group col-xs-2 " style="margin-right:30px">
+                {{ form.niveli_objective_c_lang(class="form-control niveli") }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-offset-4 col-xs-2">
+                {{ form.php_lang }}
+            </div>
+            <div class="form-group col-xs-2 ">
+                {{ form.niveli_php_lang(class="form-control niveli") }}
+            </div>
+            <div class="col-xs-2">
+                {{ form.perl_lang }}
+            </div>
+            <div class="form-group col-xs-2 " style="margin-right:30px">
+                {{ form.niveli_perl_lang(class="form-control niveli") }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-offset-4 col-xs-2">
+                {{ form.tjera_lang }}
+            </div>
+            <div class="col-xs-2">
+                {{ form.gjuhet_tjera_programuese(class="form-control", placeholder="Gjuha, Niveli") }}
+            </div>
+             <label class="col-xs-offset-4" style="margin-right:30px">*Gjuhet tjera programuese(te ndahen me presje)</label>
+        </div>
+                    
+       
     </div>
     <br>
     <!-- Shkathesite Tjera -->
@@ -167,6 +226,5 @@
     </div>
     <br>
 </form>
-
 
 {% endblock %}
