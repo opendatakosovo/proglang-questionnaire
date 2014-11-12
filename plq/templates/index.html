@@ -6,7 +6,7 @@
     $(document).ready(function() {
         $('.btn').button();
 
-        /**checkbox enables selct field niveli
+        checkbox enables selct field niveli
         $('.gjuha-programuese').change(function(){
             if ($(this).is(':checked')) {
                 $('.niveli').first().attr('disabled', false);
@@ -15,7 +15,6 @@
                 $('.niveli').attr('disabled', true);
             }   
         });
-        **/
         //checkbox gjuhet-tjera enables text field niveli
         $('.gjuhet-tjera').change(function(){
             if ($(this).is(':checked')) {
@@ -120,13 +119,13 @@
                 {{ form.python_lang }}
             </div>
             <div class="form-group col-xs-2 ">
-                {{ form.niveli_ptyhon(class="form-control niveli") }}
+                {{ form.niveli_ptyhon(disabled=True, class="form-control niveli") }}
             </div>
             <div class="col-xs-2">
                 {{ form.java_lang }}
             </div>
             <div class="form-group col-xs-2 " style="margin-right:30px">
-                {{ form.niveli_java_lang(class="form-control niveli") }}
+                {{ form.niveli_java_lang(disabled=True, class="form-control niveli") }}
             </div>
         </div>
         <div class="form-group">
@@ -134,13 +133,13 @@
                 {{ form.vb_lang }}
             </div>
             <div class="form-group col-xs-2 ">
-                {{ form.niveli_vb_lang(class="form-control niveli") }}
+                {{ form.niveli_vb_lang(disabled=True, class="form-control niveli") }}
             </div>
             <div class="col-xs-2">
                 {{ form.csharp_lang }}
             </div>
             <div class="form-group col-xs-2 " style="margin-right:30px">
-                {{ form.niveli_csharp_lang(class="form-control niveli") }}
+                {{ form.niveli_csharp_lang(disabled=True, class="form-control niveli") }}
             </div>
         </div>
         <div class="form-group">
@@ -148,13 +147,13 @@
                 {{ form.cpp_lang }}
             </div>
             <div class="form-group col-xs-2 ">
-                {{ form.niveli_cpp_lang(class="form-control niveli") }}
+                {{ form.niveli_cpp_lang(disabled=True, class="form-control niveli") }}
             </div>
             <div class="col-xs-2">
                 {{ form.java_script_lang }}
             </div>
             <div class="form-group col-xs-2 " style="margin-right:30px">
-                {{ form.niveli_java_script_lang(class="form-control niveli") }}
+                {{ form.niveli_java_script_lang(disabled=True, class="form-control niveli") }}
             </div>
         </div>
         <div class="form-group">
@@ -162,13 +161,13 @@
                 {{ form.ruby_lang }}
             </div>
             <div class="form-group col-xs-2 ">
-                {{ form.niveli_ruby_lang(class="form-control niveli") }}
+                {{ form.niveli_ruby_lang(disabled=True, class="form-control niveli") }}
             </div>
             <div class="col-xs-2">
                 {{ form.html_lang }}
             </div>
             <div class="form-group col-xs-2 " style="margin-right:30px">
-                {{ form.niveli_html_lang(class="form-control niveli") }}
+                {{ form.niveli_html_lang(disabled=True, class="form-control niveli") }}
             </div>
         </div>
         <div class="form-group">
@@ -176,13 +175,13 @@
                 {{ form.css_lang }}
             </div>
             <div class="form-group col-xs-2 ">
-                {{ form.niveli_css_lang(class="form-control niveli") }}
+                {{ form.niveli_css_lang(disabled=True, class="form-control niveli") }}
             </div>
             <div class="col-xs-2">
                 {{ form.objective_c_lang }}
             </div>
             <div class="form-group col-xs-2 " style="margin-right:30px">
-                {{ form.niveli_objective_c_lang(class="form-control niveli") }}
+                {{ form.niveli_objective_c_lang(disabled=True, class="form-control niveli") }}
             </div>
         </div>
         <div class="form-group">
@@ -190,13 +189,13 @@
                 {{ form.php_lang }}
             </div>
             <div class="form-group col-xs-2 ">
-                {{ form.niveli_php_lang(class="form-control niveli") }}
+                {{ form.niveli_php_lang(disabled=True, class="form-control niveli") }}
             </div>
             <div class="col-xs-2">
                 {{ form.perl_lang }}
             </div>
             <div class="form-group col-xs-2 " style="margin-right:30px">
-                {{ form.niveli_perl_lang(class="form-control niveli") }}
+                {{ form.niveli_perl_lang(disabled=True, class="form-control niveli") }}
             </div>
         </div>
         <div class="form-group">
@@ -204,7 +203,7 @@
                 {{ form.tjera_lang }}
             </div>
             <div class="col-xs-2">
-                {{ form.gjuhet_tjera_programuese(class="form-control", placeholder="Gjuha, Niveli") }}
+                {{ form.gjuhet_tjera_programuese(disabled=True, class="form-control", placeholder="Gjuha, Niveli") }}
             </div>
              <label class="col-xs-offset-4" style="margin-right:30px">*Gjuhet tjera programuese(te ndahen me presje)</label>
         </div>

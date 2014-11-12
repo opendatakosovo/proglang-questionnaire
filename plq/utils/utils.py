@@ -21,73 +21,72 @@ class Utils(object):
         '''
 
         json_obj = {}
-        for key in form:
-            if key == "python_lang" and key == "niveli_ptyhon":
-                json_obj['pythonLanguage'] = {
-                    'gjuhaProgramuese': form.python_lang.data[0],
-                    'niveliProgramimit': form.niveli_ptyhon.data
-                }
-            elif key == "java_lang":
-                json_obj['java_lang'] = {
-                    'gjuhaProgramuese': form.java_lang.data,
-                    'niveliProgramimit': form.niveli_ptyhon.data
-                }
-            elif key == "vb_lang":
-                json_obj['vb_lang'] = {
-                    'gjuhaProgramuese': form.vb_lang.data,
-                    'niveliProgramimit': form.niveli_ptyhon.data
-                }
-            elif key == "csharp_lang":
-                json_obj['csharp_lang'] = {
-                    'gjuhaProgramuese': form.csharp_lang.data,
-                    'niveliProgramimit': form.niveli_ptyhon.data
-                }
-            elif key == "cpp_lang":
-                json_obj['cpp_lang'] = {
-                    'gjuhaProgramuese': form.cpp_lang.data,
-                    'niveliProgramimit': form.niveli_ptyhon.data
-                }
-            elif key == "java_script_lang":
-                json_obj['java_script_lang'] = {
-                    'gjuhaProgramuese': form.java_script_lang.data,
-                    'niveliProgramimit': form.niveli_ptyhon.data
-                }
-            elif key == "ruby_lang":
-                json_obj['ruby_lang'] = {
-                    'gjuhaProgramuese': form.ruby_lang.data,
-                    'niveliProgramimit': form.niveli_ptyhon.data
-                }
-            elif key == "html_lang":
-                json_obj['html_lang'] = {
-                    'gjuhaProgramuese': form.html_lang.data,
-                    'niveliProgramimit': form.niveli_ptyhon.data
-                }
-            elif key == "css_lang":
-                json_obj['css_lang'] = {
-                    'gjuhaProgramuese': form.css_lang.data,
-                    'niveliProgramimit': form.niveli_ptyhon.data
-                }
-            elif key == "objective_c_lang":
-                json_obj['objective_c_lang'] = {
-                    'gjuhaProgramuese': form.objective_c_lang.data,
-                    'niveliProgramimit': form.niveli_ptyhon.data
-                }
-            elif key == "php_lang":
-                json_obj['php_lang'] = {
-                    'gjuhaProgramuese': form.php_lang.data,
-                    'niveliProgramimit': form.niveli_ptyhon.data
-                }
-            elif key == "perl_lang":
-                json_obj['perl_lang'] = {
-                    'gjuhaProgramuese': form.perl_lang.data,
-                    'niveliProgramimit': form.niveli_ptyhon.data
-                }
-            elif key == "tjera_lang":
-                json_obj['tjera_lang'] = {
-                    'gjuhaProgramuese': form.tjera_lang.data,
-                    'niveliProgramimit': form.niveli_ptyhon.data
-                }
-            else:
-                json_obj = form.data
 
-            return json_obj
+        json_obj = {
+            'personalInfo': {
+                'emri': form.emri.data,
+                'mbiemri': form.mbiemri.data,
+                'gjinia': form.gjinia.data,
+                'qyteti': form.qyteti.data,
+                'e_mail': form.e_mail.data,
+                'universiteti': form.universiteti.data,
+                'departamenti': form.departamenti.data,
+                'viti_studimit': form.viti_studimit.data,
+                'shkathesite_tjera': form.shkathesite_tjera.data,
+            },
+            'languages': {
+                'python': {
+                    'has_skill': form.python_lang.data,
+                    'level': form.niveli_ptyhon.data
+                },
+                'java': {
+                    'has_skill': form.java_lang.data,
+                    'level': form.niveli_java_lang.data
+                },
+                'vb_lang': {
+                    'has_skill': form.vb_lang.data,
+                    'level': form.niveli_vb_lang.data
+                },
+                'csharp_lang': {
+                    'has_skill': form.csharp_lang.data,
+                    'level': form.niveli_csharp_lang.data
+                },
+                'cpp_lang': {
+                    'has_skill': form.cpp_lang.data,
+                    'level': form.niveli_cpp_lang.data
+                },
+                'java_script_lang': {
+                    'has_skill': form.java_script_lang.data,
+                    'level': form.niveli_java_script_lang.data
+                },
+                'ruby_lang': {
+                    'has_skill': form.ruby_lang.data,
+                    'level': form.niveli_ruby_lang.data
+                },
+                'html_lang': {
+                    'has_skill': form.html_lang.data,
+                    'level': form.niveli_html_lang.data
+                },
+                'css_lang': {
+                    'has_skill': form.css_lang.data,
+                    'level': form.niveli_css_lang.data
+                },
+                'objective_c_lang': {
+                    'has_skill': form.objective_c_lang.data,
+                    'level': form.niveli_objective_c_lang.data
+                },
+                'php_lang': {
+                    'has_skill': form.php_lang.data,
+                    'level': form.niveli_php_lang.data
+                },
+                'perl_lang': {
+                    'has_skill': form.perl_lang.data,
+                    'level': form.niveli_perl_lang.data
+                },
+                'tjera_lang': {
+                    'has_skill': form.gjuhet_tjera_programuese.data
+                }
+            }
+        }
+
+        return json_obj
