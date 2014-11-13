@@ -20,73 +20,75 @@ class Utils(object):
             for skills form
         '''
 
-        json_obj = {}
+        form_obj = {}
+        form_obj = form.data
 
+        json_obj = {}
         json_obj = {
             'personalInfo': {
-                'emri': form.emri.data,
-                'mbiemri': form.mbiemri.data,
-                'gjinia': form.gjinia.data,
-                'qyteti': form.qyteti.data,
-                'e_mail': form.e_mail.data,
-                'universiteti': form.universiteti.data,
-                'departamenti': form.departamenti.data,
-                'viti_studimit': form.viti_studimit.data,
-                'shkathesite_tjera': form.shkathesite_tjera.data,
+                'emri': form_obj["emri"],
+                'mbiemri': form_obj["mbiemri"],
+                'gjinia': form_obj["gjinia"],
+                'qyteti': form_obj["qyteti"],
+                'e_mail': form_obj["e_mail"],
+                'universiteti': form_obj["universiteti"],
+                'departamenti': form_obj["departamenti"],
+                'viti_studimit': form_obj["viti_studimit"],
+                'shkathesite_tjera': form_obj["shkathesite_tjera"],
             },
-            'languages': {
-                'python': {
-                    'has_skill': form.python_lang.data,
-                    'level': form.niveli_ptyhon.data
+            'languages': [
+                {
+                    'language': form_obj['python_lang'][0],
+                    'level': form_obj['niveli_ptyhon']
                 },
-                'java': {
-                    'has_skill': form.java_lang.data,
-                    'level': form.niveli_java_lang.data
+                {
+                    'language': form_obj['java_lang'][0],
+                    'level': form_obj['niveli_java_lang']
                 },
-                'vb_lang': {
-                    'has_skill': form.vb_lang.data,
-                    'level': form.niveli_vb_lang.data
+                {
+                    'language': form_obj['vb_lang'][0],
+                    'level': form_obj['niveli_vb_lang']
                 },
-                'csharp_lang': {
-                    'has_skill': form.csharp_lang.data,
-                    'level': form.niveli_csharp_lang.data
+                {
+                    'language': form_obj['csharp_lang'][0],
+                    'level': form_obj['niveli_csharp_lang']
                 },
-                'cpp_lang': {
-                    'has_skill': form.cpp_lang.data,
-                    'level': form.niveli_cpp_lang.data
+                {
+                    'language': form_obj['cpp_lang'][0],
+                    'level': form_obj['niveli_cpp_lang']
                 },
-                'java_script_lang': {
-                    'has_skill': form.java_script_lang.data,
-                    'level': form.niveli_java_script_lang.data
+                {
+                    'language': form_obj['java_script_lang'][0],
+                    'level': form_obj['niveli_java_script_lang']
                 },
-                'ruby_lang': {
-                    'has_skill': form.ruby_lang.data,
-                    'level': form.niveli_ruby_lang.data
+                {
+                    'language': form_obj['ruby_lang'][0],
+                    'level': form_obj['niveli_ruby_lang']
                 },
-                'html_lang': {
-                    'has_skill': form.html_lang.data,
-                    'level': form.niveli_html_lang.data
+                {
+                    'language': form_obj['html_lang'][0],
+                    'level': form_obj['niveli_html_lang']
                 },
-                'css_lang': {
-                    'has_skill': form.css_lang.data,
-                    'level': form.niveli_css_lang.data
+                {
+                    'language': form_obj['css_lang'][0],
+                    'level': form_obj['niveli_css_lang']
                 },
-                'objective_c_lang': {
-                    'has_skill': form.objective_c_lang.data,
-                    'level': form.niveli_objective_c_lang.data
+                {
+                    'language': form_obj['objective_c_lang'][0],
+                    'level': form_obj['niveli_objective_c_lang']
                 },
-                'php_lang': {
-                    'has_skill': form.php_lang.data,
-                    'level': form.niveli_php_lang.data
+                {
+                    'language': form_obj['php_lang'][0],
+                    'level': form_obj['niveli_php_lang']
                 },
-                'perl_lang': {
-                    'has_skill': form.perl_lang.data,
-                    'level': form.niveli_perl_lang.data
+                {
+                    'language': form_obj['perl_lang'][0],
+                    'level': form_obj['niveli_perl_lang']
                 },
-                'tjera_lang': {
-                    'has_skill': form.gjuhet_tjera_programuese.data
+                {
+                    'language': form_obj['tjera_lang'][0],
+                    'lang_and_level': form_obj['gjuhet_tjera_programuese']
                 }
-            }
+            ]
         }
-
         return json_obj
